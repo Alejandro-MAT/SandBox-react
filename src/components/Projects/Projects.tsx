@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { IProject } from "../types/Project";
-import Project from "./Project";
+import { IProject } from "../../types/IProject";
+import { Project } from "./Project";
 
-export default function Projects() {
+export function Projects() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
@@ -12,14 +12,14 @@ export default function Projects() {
   }, []);
 
   return (
-    <section className="projects">
-      <h2>
+    <section className="pt-12 px-0 pb-24">
+      <h2 className="mt-0 mx-auto mb-12 max-w-[780px] text-center">
         Check out some of our awesome projects with creative ideas and great
         design.
       </h2>
-      <div className="container projects-container">
-        {projects.map((project:IProject) => (
-          <Project key={project.id} {...project}/>
+      <div className="container grid gap-8 grid-col-1 md:grid-cols-2">
+        {projects.map((project: IProject) => (
+          <Project key={project.id} {...project} />
         ))}
       </div>
     </section>
